@@ -10,7 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
-
+import com.spring.jpa.SpringDataJpaApplication;
 import com.spring.jpa.entity.Employee;
 import com.spring.jpa.repo.EmployeeRepo;
 
@@ -20,8 +20,14 @@ import lombok.Data;
 @Component
 public class EmployeeRunner implements CommandLineRunner {
 
+    private final SpringDataJpaApplication springDataJpaApplication;
+
 	@Autowired
 	EmployeeRepo erepo;
+
+    EmployeeRunner(SpringDataJpaApplication springDataJpaApplication) {
+        this.springDataJpaApplication = springDataJpaApplication;
+    }
 
 	public void run(String... args) throws Exception {
 
@@ -73,7 +79,7 @@ public class EmployeeRunner implements CommandLineRunner {
        
        
        System.out.println("pulled request madded");
-
+    System.out.println("hi");  
 	}
 
 }
